@@ -86,10 +86,29 @@
 
     1. Realizar filtragem de dados (por exemplo, filtrar avaliações diferentes de zero)
     ```py
-    df = df.query('assessment != 0')
-    df = df.query('assessment >= 1.000')
+    df = df.query('assessment >= 1000')
+    df = df.query('price >= 1.000')
     ```
     2. Conduzir análises adicionais ou métricas sobre os dados extraídos
+     ```py
+     import matplotlib.pyplot as plt
+
+      df = df.sort_values(by='price', ascending=False)
+      
+      # Criando o gráfico de barras
+      plt.figure(figsize=(12, 6))
+      plt.barh(df['title'], df['price'], color='skyblue')
+      plt.xlabel('Preço (R$)')
+      plt.ylabel('Produto')
+      plt.title('Preços das Geladeiras')
+      plt.gca().invert_yaxis()  # Inverter a ordem dos itens para o mais caro aparecer primeiro
+      plt.show()
+     ```
+
+     3. Visualização verticial dos valores X e Y, preço e produto da nossa extração!
+        ![image](https://github.com/pedrowill-dev/bs4-crawler-mercadolivre/assets/110316192/8090d88c-d24d-4f3d-bdc3-6e607f333b34)
+
+      
 
 9. **Conclusão**
 
